@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Info - {{index .Names 0}}</title>
+</head>
+<body>
+    <h1>{{index .Names 0}}</h1>
+    <dl>
+        <dt>ID</dt>
+        <dd>{{.ID}}</dd>
+    </dl>
+    <b>Names:</b>
+    <ul>
+        {{range .Names}}
+        <li>{{.}}</li>
+        {{end}}
+    </ul>
+    <b>Ports:</b>
+    <ul>
+        {{range .Ports}}
+        <li>
+            <b>Public: </b> {{.PublicPort}}<br>
+            <b>Private: </b> {{.PrivatePort}}
+        </li>
+        {{end}}
+    </ul>
+    <a href="/container/{{.ID}}/">Open IDE</a>
+</body>
+</html>
